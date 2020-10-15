@@ -17,6 +17,7 @@ pipeline {
                     steps {
                         echo "On Stage One"
                         sleep 100
+                        echo "END Stage One"
                     }
                 }
                 
@@ -27,6 +28,7 @@ pipeline {
                     steps {
                         echo "On stage 2"
                         sleep 25
+                        echo "END Stage two"
                     }
                 }
 
@@ -37,6 +39,7 @@ pipeline {
                     steps {
                         echo "On stage 3"
                         sleep 10
+                        echo "END Stage three"
                     }
                 }
             }
