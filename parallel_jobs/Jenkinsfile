@@ -1,0 +1,45 @@
+  
+pipeline {
+    agent any
+    stages {
+        stage('Initial Stage') {
+            steps {
+                echo 'First Step non-parallel'
+            }
+        }
+        stage('Parallel Phases') {
+            parallel {
+                
+                stage('Stage 1') {
+                    agent {
+                        label "agent_maven"
+                    }
+                    steps {
+                        echo "On Stage One"
+                        sleep 25
+                    }
+                }
+                
+                stage('Stage 2') {
+                    agent {
+                        label "agent_maven_2"
+                    }
+                    steps {
+                        echo "On stage 2"
+                        sleep 25
+                    }
+                }
+
+                stage('Stage 3') {
+                    agent {
+                        label "agent_maven_2"
+                    }
+                    steps {
+                        echo "On stage 3"
+                        sleep 25
+                    }
+                }
+            }
+        }
+    }
+}
